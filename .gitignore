@@ -30,3 +30,7 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+# build-generated OG images
+app/opengraph-image.png
+app/twitter-image.png
