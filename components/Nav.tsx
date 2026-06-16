@@ -6,6 +6,7 @@ const LINKS = [
   { href: "#how", label: "How it works" },
   { href: "#signals", label: "Live signals" },
   { href: "#pipeline", label: "What you get" },
+  { href: "#faq", label: "FAQ" },
 ];
 
 export default function Nav() {

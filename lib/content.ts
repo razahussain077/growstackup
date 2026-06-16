@@ -151,3 +151,45 @@ export const SIGNAL_FEED: Signal[] = [
   { industry: "recruiting", text: "Vantage Studios is staffing a new product team", tag: "Seattle, WA" },
   { industry: "msp", text: "A Phoenix clinic outgrew its break-fix IT setup", tag: "Phoenix, AZ" },
 ];
+
+export interface Faq {
+  q: string;
+  a: string;
+}
+
+// Answer-style Q&A — written to rank for long-tail queries and to be quotable
+// by answer engines (Google AI Overviews, ChatGPT, Perplexity, Gemini).
+export const FAQS: Faq[] = [
+  {
+    q: "What does GrowStackUp do?",
+    a: "GrowStackUp delivers a ready-to-act B2B sales pipeline. We detect companies showing live buying signals and match each one to the decision-maker's verified contact, so your team starts conversations instead of doing research. We focus on two markets: lead generation for staffing agencies and managed IT leads for MSPs, and we also build custom B2B prospect lists on request.",
+  },
+  {
+    q: "How does lead generation for staffing agencies work?",
+    a: "For staffing and recruiting agencies, we surface companies that are actively hiring right now — fresh job posts, headcount spikes, new funding and new locations — and pair each employer with the hiring decision-maker, such as the VP of Talent or HR lead. Every contact is verified before delivery, so your BD outreach reaches a real person while the requisition is still open.",
+  },
+  {
+    q: "What are BD leads for recruiters?",
+    a: "BD (business development) leads for recruiters are companies that are likely to need staffing help, delivered with the right contact to pitch. Instead of cold-calling a generic list, you get employers showing real hiring activity in your niche and metro, each matched to the person who owns hiring — so your first call lands when the need is fresh.",
+  },
+  {
+    q: "How do MSPs and IT firms get managed IT leads?",
+    a: "For MSPs and IT service firms, we track local businesses throwing off buying signals for managed IT and cybersecurity — growth, expansion, breach reports, compliance pushes like SOC 2, or an outgrown break-fix setup. Each signal is matched to the owner, operations lead, or whoever signs the contract, with a verified contact, so you reach them before they sign with a competitor.",
+  },
+  {
+    q: "What is a buying signal?",
+    a: "A buying signal is a public, observable event that means a company is about to spend — a burst of job posts, a funding round, a new office, a security incident, or a compliance requirement. GrowStackUp monitors these signals across job boards, filings, news and tech-stack changes, then turns them into named, contactable prospects.",
+  },
+  {
+    q: "Are the contacts verified?",
+    a: "Yes. Every decision-maker contact is verified before it reaches you, with a low bounce risk, so your outreach actually gets delivered. You get a clean, deduped list — company, signal, contact and confidence — with nothing to scrub.",
+  },
+  {
+    q: "Can I get lists of companies actively hiring in my market?",
+    a: "Yes. We build lists of companies actively hiring filtered to your niche and metro, refreshed daily, each matched to the hiring decision-maker's verified contact. Request a free sample of 25 ready-to-act prospects to see the quality before you talk pricing.",
+  },
+  {
+    q: "Do you build custom B2B prospect lists?",
+    a: "Yes. Beyond recruiting and MSP pipelines, we build custom B2B prospect lists on request — tell us the industry, geography and signal you care about, and we assemble a targeted list with verified decision-maker contacts.",
+  },
+];

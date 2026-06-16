@@ -63,7 +63,20 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
-    googleBot: { index: true, follow: true, "max-image-preview": "large" },
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+  // Paste codes from Google Search Console / Bing Webmaster into Vercel env vars.
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+    other: process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION
+      ? { "msvalidate.01": process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION }
+      : {},
   },
   category: "business",
 };
@@ -74,20 +87,57 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
-const orgJsonLd = {
+const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "Organization",
-  name: "GrowStackUp",
-  url: SITE_URL,
-  description:
-    "GrowStackUp delivers a ready-to-act B2B sales pipeline: companies showing buying signals matched to the decision-maker's verified contact, for staffing agencies and MSPs.",
-  slogan: "Know who's ready to buy — before your competitors do.",
-  areaServed: "US",
-  knowsAbout: [
-    "lead generation for staffing agencies",
-    "BD leads for recruiters",
-    "managed IT leads for MSPs",
-    "lists of companies actively hiring",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": `${SITE_URL}/#organization`,
+      name: "GrowStackUp",
+      url: SITE_URL,
+      logo: `${SITE_URL}/opengraph-image.png`,
+      email: "hello@growstackup.com",
+      description:
+        "GrowStackUp delivers a ready-to-act B2B sales pipeline: companies showing buying signals matched to the decision-maker's verified contact, for staffing agencies and MSPs.",
+      slogan: "Know who's ready to buy — before your competitors do.",
+      areaServed: "US",
+      knowsAbout: [
+        "lead generation for staffing agencies",
+        "BD leads for recruiters",
+        "managed IT leads for MSPs",
+        "lists of companies actively hiring",
+        "B2B prospect lists",
+        "buying signals",
+      ],
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${SITE_URL}/#website`,
+      url: SITE_URL,
+      name: "GrowStackUp",
+      publisher: { "@id": `${SITE_URL}/#organization` },
+      inLanguage: "en-US",
+    },
+    {
+      "@type": "Service",
+      name: "Lead generation for staffing agencies",
+      serviceType: "B2B lead generation",
+      provider: { "@id": `${SITE_URL}/#organization` },
+      areaServed: "US",
+      audience: { "@type": "Audience", audienceType: "Staffing and recruiting agencies" },
+      description:
+        "Companies actively hiring in your niche and metro, each matched to the hiring decision-maker's verified contact — BD leads for recruiters, refreshed daily.",
+    },
+    {
+      "@type": "Service",
+      name: "Managed IT leads for MSPs",
+      serviceType: "B2B lead generation",
+      provider: { "@id": `${SITE_URL}/#organization` },
+      areaServed: "US",
+      audience: { "@type": "Audience", audienceType: "MSPs and IT service firms" },
+      description:
+        "Local businesses showing buying signals for managed IT and cybersecurity, each matched to the decision-maker's verified contact.",
+    },
   ],
 };
 
@@ -104,7 +154,7 @@ export default function RootLayout({
       <body className="paper-field grain">
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         {children}
       </body>
