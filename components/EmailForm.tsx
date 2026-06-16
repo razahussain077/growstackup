@@ -2,9 +2,9 @@
 
 import { useState } from "react";
 
-// Wire this to a real endpoint later (Zapier/Make/your API). Falls back gracefully.
-const WEBHOOK_URL =
-  process.env.NEXT_PUBLIC_LEAD_WEBHOOK_URL || "https://example.com/webhook/growstackup-leads";
+// Leads POST to our own API route, which stores them in Supabase and (optionally)
+// emails an alert. See app/api/lead/route.ts.
+const LEAD_ENDPOINT = "/api/lead";
 
 type Status = "idle" | "loading" | "done" | "error";
 
@@ -24,14 +24,18 @@ export default function EmailForm() {
     }
     setStatus("loading");
     try {
-      await fetch(WEBHOOK_URL, {
+      const res = await fetch(LEAD_ENDPOINT, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, market, region, source: "growstackup.com", ts: Date.now() }),
-      }).catch(() => {});
+      });
+      if (!res.ok && res.status === 422) {
+        setStatus("error");
+        return;
+      }
+      // Stored (or queued) — show success. Never lose a visitor on a transient error.
       setStatus("done");
     } catch {
-      // Never block the visitor on a placeholder webhook — show success optimistically.
       setStatus("done");
     }
   }
