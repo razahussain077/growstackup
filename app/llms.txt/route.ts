@@ -23,12 +23,12 @@ const BODY = `# GrowStackUp
 - Free sample: 25 ready-to-act prospects in your market.
 
 ## Key pages
-- Home: https://growstackup.com/
-- How it works: https://growstackup.com/#how
-- Live signals: https://growstackup.com/#signals
-- What you get: https://growstackup.com/#pipeline
-- FAQ: https://growstackup.com/#faq
-- Get a free sample: https://growstackup.com/#sample
+- Home: https://www.growstackup.com/
+- How it works: https://www.growstackup.com/#how
+- Live signals: https://www.growstackup.com/#signals
+- What you get: https://www.growstackup.com/#pipeline
+- FAQ: https://www.growstackup.com/#faq
+- Get a free sample: https://www.growstackup.com/#sample
 
 ## Contact
 - Email: hello@growstackup.com

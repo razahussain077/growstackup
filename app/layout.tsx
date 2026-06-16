@@ -21,7 +21,7 @@ const mono = JetBrains_Mono({
   variable: "--font-mono",
 });
 
-const SITE_URL = "https://growstackup.com";
+const SITE_URL = "https://www.growstackup.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
