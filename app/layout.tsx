@@ -8,13 +8,11 @@ const display = Fraunces({
   axes: ["opsz", "SOFT", "WONK"],
   variable: "--font-display",
 });
-
 const sans = Inter_Tight({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-sans",
 });
-
 const mono = JetBrains_Mono({
   subsets: ["latin"],
   display: "swap",
@@ -22,70 +20,8 @@ const mono = JetBrains_Mono({
 });
 
 const SITE_URL = "https://www.growstackup.com";
-
-export const metadata: Metadata = {
-  metadataBase: new URL(SITE_URL),
-  title: {
-    default: "GrowStackUp — Know who's ready to buy before your competitors do",
-    template: "%s · GrowStackUp",
-  },
-  description:
-    "GrowStackUp delivers a ready-to-act sales pipeline. Lead generation for staffing agencies and managed IT leads for MSPs — companies showing buying signals right now, each matched with the decision-maker's verified contact.",
-  keywords: [
-    "lead generation for staffing agencies",
-    "BD leads for recruiters",
-    "managed IT leads for MSPs",
-    "lists of companies actively hiring",
-    "B2B prospect lists",
-    "buying signals",
-    "sales pipeline",
-  ],
-  authors: [{ name: "GrowStackUp" }],
-  creator: "GrowStackUp",
-  alternates: {
-    canonical: SITE_URL,
-  },
-  openGraph: {
-    type: "website",
-    url: SITE_URL,
-    siteName: "GrowStackUp",
-    title: "GrowStackUp — Know who's ready to buy before your competitors do",
-    description:
-      "A ready-to-act B2B sales pipeline. Companies actively hiring or shopping for IT, each matched to the decision-maker's verified contact. Built for recruiters and MSPs.",
-    locale: "en_US",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "GrowStackUp — Know who's ready to buy before your competitors do",
-    description:
-      "A ready-to-act B2B sales pipeline for staffing agencies and MSPs. Real buying signals, matched to verified decision-maker contacts.",
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-      "max-video-preview": -1,
-    },
-  },
-  // Paste codes from Google Search Console / Bing Webmaster into Vercel env vars.
-  verification: {
-    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
-    other: process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION
-      ? { "msvalidate.01": process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION }
-      : {},
-  },
-  category: "business",
-};
-
-export const viewport: Viewport = {
-  themeColor: "#f3eee2",
-  width: "device-width",
-  initialScale: 1,
-};
+const FOUNDER_URL = "https://www.growstackup.com/founder";
+const LINKEDIN_URL = "https://www.linkedin.com/in/raza-hussain-niazi-727993206";
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -98,16 +34,36 @@ const jsonLd = {
       logo: `${SITE_URL}/opengraph-image.png`,
       email: "hello@growstackup.com",
       description:
-        "GrowStackUp delivers a ready-to-act B2B sales pipeline: companies showing buying signals matched to the decision-maker's verified contact, for staffing agencies and MSPs.",
+        "GrowStackUp turns public B2B buying signals into ready-to-act prospects matched to relevant decision-makers.",
       slogan: "Know who's ready to buy — before your competitors do.",
       areaServed: "US",
+      founder: { "@id": `${FOUNDER_URL}/#person` },
+      sameAs: [LINKEDIN_URL],
       knowsAbout: [
-        "lead generation for staffing agencies",
-        "BD leads for recruiters",
+        "B2B lead generation",
+        "staffing agency leads",
+        "recruiting business development",
         "managed IT leads for MSPs",
-        "lists of companies actively hiring",
-        "B2B prospect lists",
+        "B2B buying signals",
+        "decision-maker research",
+        "account-based prospecting",
+      ],
+    },
+    {
+      "@type": "Person",
+      "@id": `${FOUNDER_URL}/#person`,
+      name: "Raza Hussain Niazi",
+      jobTitle: "Founder",
+      url: LINKEDIN_URL,
+      sameAs: [LINKEDIN_URL],
+      worksFor: { "@id": `${SITE_URL}/#organization` },
+      knowsAbout: [
+        "B2B sales",
+        "lead generation",
+        "account-based prospecting",
         "buying signals",
+        "sales automation",
+        "AI agents",
       ],
     },
     {
@@ -126,7 +82,7 @@ const jsonLd = {
       areaServed: "US",
       audience: { "@type": "Audience", audienceType: "Staffing and recruiting agencies" },
       description:
-        "Companies actively hiring in your niche and metro, each matched to the hiring decision-maker's verified contact — BD leads for recruiters, refreshed daily.",
+        "Prospects built from observable hiring activity and matched to relevant hiring decision-makers.",
     },
     {
       "@type": "Service",
@@ -136,21 +92,67 @@ const jsonLd = {
       areaServed: "US",
       audience: { "@type": "Audience", audienceType: "MSPs and IT service firms" },
       description:
-        "Local businesses showing buying signals for managed IT and cybersecurity, each matched to the decision-maker's verified contact.",
+        "Prospects built from public technology, growth, security and compliance signals.",
     },
   ],
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: "B2B Lead Generation for Staffing Agencies & MSPs | GrowStackUp",
+    template: "%s · GrowStackUp",
+  },
+  description:
+    "GrowStackUp turns live B2B buying signals into ready-to-act prospects for staffing agencies and MSPs — with the company, signal and relevant decision-maker in one pipeline.",
+  authors: [{ name: "Raza Hussain Niazi", url: LINKEDIN_URL }],
+  creator: "Raza Hussain Niazi",
+  publisher: "GrowStackUp",
+  alternates: { canonical: SITE_URL },
+  openGraph: {
+    type: "website",
+    url: SITE_URL,
+    siteName: "GrowStackUp",
+    title: "B2B Lead Generation for Staffing Agencies & MSPs | GrowStackUp",
+    description:
+      "Find companies showing live buying signals and map them to the decision-maker. Built for staffing agencies, recruiters, MSPs and IT firms.",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "B2B Lead Generation for Staffing Agencies & MSPs | GrowStackUp",
+    description:
+      "Turn hiring, funding, expansion, technology and other company signals into ready-to-act B2B prospects.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+    other: process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION
+      ? { "msvalidate.01": process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION }
+      : {},
+  },
+  category: "business",
+};
+
+export const viewport: Viewport = {
+  themeColor: "#f3eee2",
+  width: "device-width",
+  initialScale: 1,
+};
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html
-      lang="en"
-      className={`${display.variable} ${sans.variable} ${mono.variable}`}
-    >
+    <html lang="en" className={`${display.variable} ${sans.variable} ${mono.variable}`}>
       <body className="paper-field grain">
         <script
           type="application/ld+json"
