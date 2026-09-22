@@ -1,14 +1,14 @@
 import type { MetadataRoute } from "next";
 
+const BASE = "https://www.growstackup.com";
+const LAST_MODIFIED = new Date("2026-09-22T00:00:00.000Z");
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = "https://www.growstackup.com";
-  const now = new Date();
   return [
-    { url: base, lastModified: now, changeFrequency: "weekly", priority: 1 },
-    { url: `${base}/#how`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
-    { url: `${base}/#signals`, lastModified: now, changeFrequency: "weekly", priority: 0.7 },
-    { url: `${base}/#pipeline`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
-    { url: `${base}/#faq`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
-    { url: `${base}/#sample`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
+    { url: BASE, lastModified: LAST_MODIFIED, changeFrequency: "weekly", priority: 1 },
+    { url: `${BASE}/staffing-agency-leads`, lastModified: LAST_MODIFIED, changeFrequency: "weekly", priority: 0.95 },
+    { url: `${BASE}/msp-leads`, lastModified: LAST_MODIFIED, changeFrequency: "weekly", priority: 0.95 },
+    { url: `${BASE}/b2b-buying-signals`, lastModified: LAST_MODIFIED, changeFrequency: "weekly", priority: 0.9 },
+    { url: `${BASE}/founder`, lastModified: LAST_MODIFIED, changeFrequency: "monthly", priority: 0.7 },
   ];
 }
