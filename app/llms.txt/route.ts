@@ -1,37 +1,41 @@
-// /llms.txt — a concise, machine-readable summary for AI answer engines (AEO).
 export const dynamic = "force-static";
 
 const BODY = `# GrowStackUp
 
-> GrowStackUp delivers a ready-to-act B2B sales pipeline. We detect companies showing live buying signals and match each to the decision-maker's verified contact. Core promise: "Know who's ready to buy — before your competitors do."
+> GrowStackUp is a B2B signal-intelligence and lead-generation service for staffing agencies, recruiters, MSPs and IT service firms. It turns public company signals into ready-to-act prospects matched to relevant decision-makers.
 
-## What we do
-- Lead generation for staffing agencies: companies actively hiring right now, matched to the hiring decision-maker's verified contact (also called BD leads for recruiters).
-- Managed IT leads for MSPs: local businesses showing buying signals for managed IT and cybersecurity, matched to the decision-maker's verified contact.
-- Custom B2B prospect lists on request: targeted lists by industry, geography and signal, with verified contacts.
+## Core use cases
 
-## How it works
-1. We watch the signals — job posts, headcount spikes, funding, new locations, breach reports, compliance pushes and tech changes.
-2. We match the decision-maker — each signal is tied to the person who owns the decision, with a verified email.
-3. You get a ready-to-act list — company, signal, contact and confidence, delivered to your inbox or CRM with nothing to scrub.
+### Staffing agency leads
+Find companies actively hiring in a target niche and geography, identify the relevant hiring contact, and give staffing BD a current reason to start a conversation.
 
-## Who it's for
-- Staffing and recruiting agencies doing business development.
-- MSPs and IT service firms selling managed IT and cybersecurity.
+### MSP leads
+Find businesses showing public signals that can create managed IT or cybersecurity demand, then map the likely decision-maker.
 
-## Offer
-- Free sample: 25 ready-to-act prospects in your market.
+### Custom B2B prospect research
+Build targeted prospect lists around an industry, geography and observable trigger.
+
+## Buying signals
+- Hiring surges
+- Leadership changes
+- Funding and investment
+- New locations and expansion
+- Technology or platform changes
+- Security and compliance events
+- Product or service launches
 
 ## Key pages
 - Home: https://www.growstackup.com/
-- How it works: https://www.growstackup.com/#how
-- Live signals: https://www.growstackup.com/#signals
-- What you get: https://www.growstackup.com/#pipeline
-- FAQ: https://www.growstackup.com/#faq
-- Get a free sample: https://www.growstackup.com/#sample
+- Staffing agency leads: https://www.growstackup.com/staffing-agency-leads
+- MSP leads: https://www.growstackup.com/msp-leads
+- B2B buying signals guide: https://www.growstackup.com/b2b-buying-signals
+- Founder: https://www.growstackup.com/founder
+
+## Founder
+Raza Hussain Niazi — https://www.linkedin.com/in/raza-hussain-niazi-727993206
 
 ## Contact
-- Email: hello@growstackup.com
+hello@growstackup.com
 `;
 
 export function GET() {
